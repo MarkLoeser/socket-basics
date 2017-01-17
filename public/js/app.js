@@ -6,14 +6,7 @@ console.log(name + ' wants to join ' + room);
 
 jQuery('.room-title').text(room);
 
-socket.on('joinRoom', function(req) {
-	socket.join(req.room);
-	socket.broadcast.to(req.room).emit('message', {
-		name: 'System',
-		text: req.name + ' has joined!',
-		timestamp: moment().valueOf()
-	})
-});
+
 
 socket.on('connect',function() {
 	console.log('Connected to socket.io server');
